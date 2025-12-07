@@ -1,131 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>
-    Rummy888 Launch
-</title><style>body {
+<title>Rummy888 Launch</title>
+
+<style>
+/* ---------------- GLOBAL ---------------- */
+body {
     font-family: Arial, sans-serif;
-    line-height: 1.5;
+    line-height: 1.6;
     padding: 20px;
-    background: #f9f9f9;
-    color: #333;
-  }
-
-  h1, h2, h3, h4 {
-    text-align: center;
-    margin: 10px 0;
-  }
-
-  .slider-container {
-    overflow-x: auto;
-    white-space: nowrap;
-    width: 100%;
-    padding: 10px 0;
-    margin: 20px 0;
-  }
-
-  .slider-wrapper img {
+    color: white;
+    overflow-x: hidden;
+    background: #000;
+    position: relative;
+    margin: 0;
+    text-align: center; /* CENTER ALL TEXT */
+}
+.download-btn {
     display: inline-block;
-    width: 120px; /* mobile-friendly size */
+    padding: 15px 30px;
+    background: linear-gradient(45deg, #ffd700, #ffcc00);
+    color: #000;
+    font-weight: bold;
+    font-size: 1.2rem;
+    text-decoration: none;
+    border-radius: 12px;
+    box-shadow: 0 0 10px #ffd700, 0 0 20px #ffcc00;
+    margin-top: 20px;
+    position: relative;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Subtle shake animation */
+@keyframes gentleShake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-3px); }
+    50% { transform: translateX(3px); }
+    75% { transform: translateX(-3px); }
+    100% { transform: translateX(0); }
+}
+
+/* Add shake class dynamically */
+.download-btn.shake {
+    animation: gentleShake 0.5s ease-in-out;
+}
+
+
+/* ---------------- GOLD DUST ---------------- */
+.gold-dust {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.particle {
+    position: absolute;
+    background: radial-gradient(circle, #ffd700, rgba(255,215,0,0));
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    opacity: 0.8;
+    animation: floatUp 5s linear infinite;
+}
+
+@keyframes floatUp {
+    0% { transform: translateY(0) scale(1); opacity: 1; }
+    100% { transform: translateY(-120vh) scale(0.3); opacity: 0; }
+}
+
+/* ---------------- HEADER & LOGO ---------------- */
+.header-container {
+    position: relative;
+    text-align: center;
+    z-index: 2;
+    margin-top: 50px;
+}
+
+.logo-animated {
+    width: 150px;
+    max-width: 40vw; /* scales for smaller screens */
     height: auto;
-    margin-right: 8px;
-    border-radius: 8px;
-  }
+    animation: breathe 3s ease-in-out infinite;
+    display: block;
+    margin: 0 auto 10px;
+}
 
-  /* Hide scrollbar for cleaner look */
-  .slider-container::-webkit-scrollbar {
-    display: none;
-  }
+@keyframes breathe {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+}
 
-  ul {
-    max-width: 700px;
-    margin: 0 auto 20px auto;
-    padding-left: 20px;
-  }
+/* ---------------- TITLE ---------------- */
+.title-text {
+    font-size: 4rem;
+    font-weight: 900;
+    color: gold; /* original color */
+    text-shadow: 0 0 5px gold, 0 0 20px gold; /* original glow */
+    position: relative;
+    z-index: 2;
+}
 
-  ul li {
-    margin-bottom: 8px;
-  }
+.subtitle {
+    font-size: 22px;
+    color: #ffd979;
+    text-shadow: 0 0 5px gold; /* original glow */
+    margin-top: 5px;
+}
 
-  p.download {
+/* ---------------- HEADINGS ---------------- */
+h2 {
+    text-align: center;
+    margin: 20px 0 15px;
+}
+
+/* ---------------- SINGLE SLIDER ---------------- */
+.single-slider {
+    width: 100%;
+    max-width: 350px;
+    margin: 25px auto;
+    text-align: center;
+}
+
+.single-slider img {
+    width: 100%;
+    border-radius: 12px;
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
+}
+
+/* ---------------- HORIZONTAL SLIDER ---------------- */
+.slider-container {
+    width: 100%;
+    overflow: hidden;
+    margin: 25px auto;
+}
+
+.slider-wrapper {
+    display: flex;
+    gap: 16px;
+    justify-content: center; /* center the sliding images */
+    animation: slideAuto 28s linear infinite;
+}
+
+.slider-wrapper img {
+    width: 320px;
+    height: 120px;
+    border-radius: 10px;
+}
+
+@keyframes slideAuto {
+    0% { transform: translateX(0); }
+    20% { transform: translateX(-320px); }
+    40% { transform: translateX(-640px); }
+    60% { transform: translateX(-960px); }
+    80% { transform: translateX(-1280px); }
+    100% { transform: translateX(0); }
+}
+
+/* ---------------- LIST ---------------- */
+ul {
+    max-width: 750px;
+    margin: 0 auto 25px;
+    padding-left: 0; /* remove left padding for centering */
+    list-style: none; /* remove default bullets */
+}
+
+ul li {
+    margin-bottom: 10px;
+    font-size: 1rem;
+    position: relative;
+    padding-left: 1.5em; /* space for custom bullet */
+    text-align: left; /* keep bullet aligned */
+}
+
+/* custom bullet */
+ul li::before {
+    content: "⭐";
+    position: absolute;
+    left: 0;
+}
+
+/* ---------------- DOWNLOAD BUTTON ---------------- */
+p.download {
     text-align: center;
     font-weight: bold;
-    font-size: 1.1em;
-  }</style>
-<h1>
-    <span style="color: rgb(0, 0, 0);">Rummy888 </span><span style="color: rgb(0, 0, 0);">— New App Launch &amp; Exclusive Rewards!</span>
-</h1>
-<h2>
-    Your favourite gaming platform just got <strong>bigger, faster, and better</strong>! Experience smooth gameplay, improved graphics, and exciting rewards at every turn.
-</h2>
-<p>
-    <br/>
-</p>
-<h2>
-    🔥 Exclusive Bonuses &amp; Rewards:
-</h2>
-<div class="slider-container">
-    <div class="slider-wrapper" id="sliderWrapper">
-        <img src="https://www.prosafeimg.com/uploads/20251207/69347712c951d.jpg" alt="Image 1" title="Image 1" width="320" height="120" border="0" vspace="0" style="width: 320px; height: 120px;"/> &nbsp; &nbsp;<img src="https://www.prosafeimg.com/uploads/20251207/693481c72be1d.jpg" alt="6 CASH REWARD" title="6 CASH REWARD" width="320" height="120" border="0" vspace="0" style="width: 320px; height: 120px;"/> &nbsp; &nbsp;<img src="https://www.prosafeimg.com/uploads/20251207/693481c72d8b9.jpg" alt="4 GULLAK" title="4 GULLAK" width="320" height="120" border="0" vspace="0" style="width: 320px; height: 120px;"/> &nbsp; &nbsp;<img src="https://www.prosafeimg.com/uploads/20251207/693481c72e28c.jpg" alt="5 LUCKY WHEEL" title="5 LUCKY WHEEL" width="320" height="120" border="0" vspace="0" style="width: 320px; height: 120px;"/> &nbsp; &nbsp;<img src="https://www.prosafeimg.com/uploads/20251207/693481c7ad937.jpg" alt="7 MONTHLY CARD" title="7 MONTHLY CARD" width="320" height="120" border="0" vspace="0" style="width: 320px; height: 120px;"/> &nbsp; &nbsp;<img src="https://www.prosafeimg.com/uploads/20251207/693481c7a606e.jpg" alt="8 REFER N EARN" title="8 REFER N EARN" width="320" height="120" border="0" vspace="0" style="width: 320px; height: 120px;"/> &nbsp; &nbsp;<img src="https://www.prosafeimg.com/uploads/20251207/693481c7a9f0d.jpg" alt="9 VIP" title="9 VIP" width="320" height="120" border="0" vspace="0" style="width: 320px; height: 120px;"/> &nbsp; &nbsp;<img src="https://www.prosafeimg.com/uploads/20251207/693481c7ece37.jpg" alt="12 MYSTERY" title="12 MYSTERY" width="320" height="120" border="0" vspace="0" style="width: 320px; height: 120px;"/> &nbsp; &nbsp;<img src="https://www.prosafeimg.com/uploads/20251207/693481c7eb962.jpg" alt="11 LEADERBOARD" title="11 LEADERBOARD" width="320" height="120" border="0" vspace="0" style="width: 320px; height: 120px;"/> &nbsp; &nbsp;
-    </div>
+    font-size: 1.2rem;
+}
+
+a {
+    color: red;
+    text-decoration: underline;
+}
+
+/* ---------------- RESPONSIVE ---------------- */
+@media (max-width: 600px) {
+    .logo-animated { width: 100px; }
+    .title-text { font-size: 2rem; }
+    .subtitle { font-size: 16px; }
+    ul li { font-size: 0.95rem; padding-left: 1.2em; }
+}
+</style>
+</head>
+<body>
+
+<!-- Gold dust particles -->
+<div class="gold-dust" id="goldDust"></div>
+
+<!-- Header -->
+<div class="header-container">
+    <img class="logo-animated" src="https://www.prosafeimg.com/uploads/20251207/6935a06f71518.png">
+    <div class="title-text">Rummy888</div>
+    <div class="subtitle">— New App Launch & Exclusive Rewards! —</div>
 </div>
-<ul class=" list-paddingleft-2">
-    <li>
-        <p>
-            ⭐ <strong>Instant Sign-Up Bonus</strong> — start your journey with extra credits
-        </p>
-    </li>
-    <li>
-        <p>
-            ⭐ <strong>First Deposit Bonus</strong> — up to ₹1 Lakh
-        </p>
-    </li>
-    <li>
-        <p>
-            ⭐ <strong>Daily Promo Codes &amp; Deposit Vouchers</strong> — never miss a reward
-        </p>
-    </li>
-    <li>
-        <p>
-            ⭐ <strong>Lucky Gullak Surprise</strong> — catch random bonuses anytime online
-        </p>
-    </li>
-    <li>
-        <p>
-            ⭐ <strong>Spin the Lucky Wheel</strong> — earn coins, bonuses, and free spins daily
-        </p>
-    </li>
-    <li>
-        <p>
-            ⭐ <strong>Daily Cashback + Weekly &amp; Monthly Rewards</strong> — boost your balance regularly
-        </p>
-    </li>
-    <li>
-        <p>
-            ⭐ <strong>Refer &amp; Earn</strong> — invite friends and get rewards, plus Agent Leaderboard Bonuses
-        </p>
-    </li>
-    <li>
-        <p>
-            ⭐ <strong>VIP Bonus</strong> — level up and unlock rewards up to ₹20 Lakh
-        </p>
-    </li>
-    <li>
-        <p>
-            ⭐ <strong>Leaderboard Prize Pool</strong> — share a ₹1.85 Lakh pool
-        </p>
-    </li>
-    <li>
-        <p>
-            ⭐ <strong>Mystery Bonus</strong> — can drop anytime, so stay online for surprises!
-        </p>
-        <p>
-            <br/>
-        </p>
-    </li>
+
+<h2>
+  Your favourite gaming platform just got <strong>bigger, faster, and better</strong>!
+</h2>
+
+ <!-- PULSING DOWNLOAD BUTTON HERE -->
+    <a class="download-btn" href="https://d2b7d7zspwuwat.cloudfront.net/rummy888_7WTCSDMZ06V.apk" target="_self">
+        🎮 Download Rummy888
+    </a>
+
+<!-- Single image slider -->
+<div class="single-slider">
+  <img id="slideImg" src="https://www.prosafeimg.com/uploads/20251207/69359a3e07ae6.jpg">
+</div>
+
+<h2>🔥 Exclusive Bonus & Rewards:</h2>
+
+<ul>
+  <li><strong>Instant Sign-Up Bonus</strong> — start your journey with extra credits</li>
+  <li><strong>First Deposit Bonus</strong> — up to ₹1 Lakh</li>
+  <li><strong>Daily Promo Codes & Deposit Vouchers</strong></li>
+  <li><strong>Lucky Gullak Surprise</strong> — catch random bonuses anytime online</li>
+  <li><strong>Spin the Lucky Wheel</strong> — earn coins, bonuses, and free spins daily</li>
+  <li><strong>Daily Cashback + Weekly & Monthly Rewards</strong> — boost your balance regularly</li>
+  <li><strong>Refer & Earn</strong> — invite friends and get rewards, plus Agent Leaderboard Bonuses</li>
+  <li><strong>VIP Bonus</strong> — level up and unlock rewards up to ₹20 Lakh</li>
+  <li><strong>Leaderboard Prize Pool</strong> — share a ₹1.85 Lakh pool</li>
+  <li><strong>Mystery Bonus</strong> — can drop anytime, so stay online for surprises!</li>
 </ul>
+
 <p class="download">
-    🎮 <a href="https://d2b7d7zspwuwat.cloudfront.net/rummy888_7WTCSDMZ06V.apk" target="_self" title="Download Rummy888">Download Rummy888</a> now and enjoy the ultimate gaming experience!
-</p><!--!doctype-->
-<p style="display:none;" data-background="background-repeat:repeat; background-position:center center; background-color:#F2DCDB;">
-    <br/>
+    👉 <a href="https://d2b7d7zspwuwat.cloudfront.net/rummy888_7WTCSDMZ06V.apk" target="_self">Download Rummy888</a> 🎰 now and enjoy the ultimate gaming experience!
 </p>
+
+<!-- Horizontal slider -->
+<div class="slider-container">
+  <div class="slider-wrapper">
+      <img src="https://www.prosafeimg.com/uploads/20251207/69347712c951d.jpg"/>
+      <img src="https://www.prosafeimg.com/uploads/20251207/693481c72be1d.jpg"/>
+      <img src="https://www.prosafeimg.com/uploads/20251207/693481c72d8b9.jpg"/>
+      <img src="https://www.prosafeimg.com/uploads/20251207/693481c72e28c.jpg"/>
+      <img src="https://www.prosafeimg.com/uploads/20251207/693481c7ad937.jpg"/>
+      <img src="https://www.prosafeimg.com/uploads/20251207/693481c7a606e.jpg"/>
+      <img src="https://www.prosafeimg.com/uploads/20251207/693481c7a9f0d.jpg"/>
+      <img src="https://www.prosafeimg.com/uploads/20251207/693481c7ece37.jpg"/>
+      <img src="https://www.prosafeimg.com/uploads/20251207/693481c7eb962.jpg"/>
+  </div>
+</div>
+
+<!-- ---------------- SCRIPTS ---------------- -->
+<script>
+// ---------------- SINGLE SLIDER ----------------
+const images = [
+  "https://www.prosafeimg.com/uploads/20251207/69359a3e07ae6.jpg",
+  "https://www.prosafeimg.com/uploads/20251207/69359a3dc72ae.jpg",
+  "https://www.prosafeimg.com/uploads/20251207/69359a3e0a826.jpg",
+  "https://www.prosafeimg.com/uploads/20251207/69359a3e2211b.jpg",
+  "https://www.prosafeimg.com/uploads/20251207/69359a3e186ba.jpg",
+  "https://www.prosafeimg.com/uploads/20251207/69359a3e1d8dd.jpg",
+  "https://www.prosafeimg.com/uploads/20251207/69359a3e20767.jpg",
+  "https://www.prosafeimg.com/uploads/20251207/69359a3e0fa0a.jpg",
+  "https://www.prosafeimg.com/uploads/20251207/69359a3e222ac.jpg",
+  "https://www.prosafeimg.com/uploads/20251207/69359a3e21efb.jpg",
+  "https://www.prosafeimg.com/uploads/20251207/69359a3e14173.jpg"
+];
+
+let index = 0;
+const slideImg = document.getElementById("slideImg");
+
+setInterval(() => {
+    slideImg.style.opacity = 0;
+
+    setTimeout(() => {
+        index = (index + 1) % images.length;
+        slideImg.src = images[index];
+        slideImg.style.opacity = 1;
+    }, 800);
+
+}, 3000);
+
+// ---------------- GOLD PARTICLES ----------------
+const goldDust = document.getElementById('goldDust');
+
+for(let i = 0; i < 50; i++){
+    const particle = document.createElement('div');
+    particle.className = 'particle';
+    particle.style.left = Math.random() * 100 + 'vw';
+    particle.style.animationDuration = 3 + Math.random() * 5 + 's';
+    particle.style.width = 3 + Math.random() * 5 + 'px';
+    particle.style.height = particle.style.width;
+    goldDust.appendChild(particle);
+}
+</script>
+</body>
+</html>
