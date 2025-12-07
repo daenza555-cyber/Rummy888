@@ -120,19 +120,26 @@ h2 {
     margin: 20px 0 15px;
 }
 
-/* ---------------- SINGLE SLIDER ---------------- */
 .single-slider {
-    width: 100%;
-    max-width: 350px;
+    width: 90%;          /* fill most of screen */
+    max-width: 800px;    /* desktop max size */
     margin: 25px auto;
     text-align: center;
 }
 
 .single-slider img {
-    width: 100%;
+    width: 100%;         /* fill container */
+    height: auto;        /* maintain aspect ratio */
     border-radius: 12px;
-    opacity: 1;
-    transition: opacity 1s ease-in-out;
+    transition: opacity 0.5s ease-in-out; /* match JS fade */
+}
+
+@media (max-width: 600px) {
+    .single-slider {
+        max-width: 350px; /* shrink for mobile */
+    }
+}
+
 }
 
 /* ---------------- HORIZONTAL SLIDER ---------------- */
@@ -224,16 +231,16 @@ a {
   Your favourite gaming platform just got <strong>bigger, faster, and better</strong>!
 </h2>
 
- <!-- PULSING DOWNLOAD BUTTON HERE -->
-    <a class="download-btn" href="https://d2b7d7zspwuwat.cloudfront.net/rummy888_7WTCSDMZ06V.apk" target="_self">
-        🎮 Download Rummy888
-    </a>
+
 
 <!-- Single image slider -->
 <div class="single-slider">
   <img id="slideImg" src="https://www.prosafeimg.com/uploads/20251207/69359a3e07ae6.jpg">
 </div>
-
+ <!-- PULSING DOWNLOAD BUTTON HERE -->
+    <a class="download-btn" href="https://d2b7d7zspwuwat.cloudfront.net/rummy888_7WTCSDMZ06V.apk" target="_self">
+        🎮 Download Rummy888
+    </a>
 <h2>🔥 Exclusive Bonus & Rewards:</h2>
 
 <ul>
@@ -270,6 +277,7 @@ a {
 
 <!-- ---------------- SCRIPTS ---------------- -->
 <script>
+
 // ---------------- SINGLE SLIDER ----------------
 const images = [
   "https://www.prosafeimg.com/uploads/20251207/69359a3e07ae6.jpg",
