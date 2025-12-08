@@ -20,27 +20,33 @@
   }
 
   /* ✨ LIGHT RAYS BEHIND BANNER */
-  .banner {
-    position: relative;
-    display: inline-block;
-  }
+.banner {
+  position: relative;
+  display: inline-block;
+  z-index: 1; /* Keep banner ABOVE the glow */
+}
 
-  .banner::before {
-    content: "";
-    position: absolute;
-    width: 200%;
-    height: 200%;
-    top: -50%;
-    left: -50%;
-    background: radial-gradient(circle, rgba(255,215,0,0.25), transparent 70%);
-    filter: blur(40px);
-    animation: raysRotate 10s linear infinite;
-  }
+.banner::before {
+  content: "";
+  position: absolute;
+  width: 160%;
+  height: 160%;
+  top: -30%;
+  left: -30%;
+  
+  /* Softer glow that does NOT cover banner */
+  background: radial-gradient(circle, rgba(255,215,0,0.12), transparent 70%);
+  filter: blur(60px);
+  animation: raysRotate 12s linear infinite;
 
-  @keyframes raysRotate {
-    from { transform: rotate(0deg); }
-    to   { transform: rotate(360deg); }
-  }
+  z-index: -1; /* Push the glow BEHIND the banner */
+}
+
+@keyframes raysRotate {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
 
   /* ✨ SPARKLES */
   .sparkle {
@@ -148,22 +154,23 @@
     }
   }
 
-  /* 🎮 FULL WIDTH SINGLE SLIDER — NO CUTTING */
-  .slider {
-    position: relative;
-    width: 100%;
-    margin-top: 40px;
-  }
+  /* 🎮 GAME SLIDER — smaller than banner, centered */
+.slider {
+  position: relative;
+  width: 80%; /* smaller than banner */
+  max-width: 900px; /* optional: limit max size */
+  margin: 40px auto 0 auto; /* centered */
+}
 
-  .slider img {
-    width: 100%;
-    border-radius: 15px;
-    display: none;
-  }
+.slider img {
+  width: 100%; /* fill the slider container */
+  border-radius: 15px;
+  display: none;
+}
 
-  .slider img.active {
-    display: block;
-  }
+.slider img.active {
+  display: block;
+}
 </style>
 
 <section class="rummy888-section">
