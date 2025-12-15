@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rummy888 – Premium Gold Experience</title>
+
+<style>
+:root{
+  --black:#0a0a0a;
+  --gold:#d4af37;
+  --gold-soft:#f3d77a;
+  --text:#fff6d6;
+  --muted:#d8caa0;
+  --card:rgba(255,255,255,0.05);
+  --stroke:rgba(212,175,55,0.35);
+  --shadow:0 18px 45px rgba(0,0,0,.65);
+  --radius:18px;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  background:
+    radial-gradient(700px 350px at 20% 10%, rgba(212,175,55,.18), transparent 60%),
+    radial-gradient(600px 300px at 80% 15%, rgba(212,175,55,.12), transparent 55%),
+    linear-gradient(180deg,#111,#000);
+  color:var(--text);
+  overflow-x:hidden;
+}
+
+.wrap{
+  width:min(1200px,92vw);
+  margin:auto;
+  padding:20px 0 90px;
+}
+
+/* ===== RED DOWNLOAD BUTTON ===== */
+.btn-download{
+  background:#ff2d2d;
+  color:#fff;
+  font-weight:800;
+  text-decoration:none;
+  padding:14px 20px;
+  border-radius:14px;
+  box-shadow:0 0 25px rgba(255,45,45,.45);
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+}
+.btn-download:hover{transform:scale(1.05)}
+
+.floating-download{
+  position:fixed;
+  right:18px;
+  bottom:18px;
+  z-index:999;
+}
+
+/* ===== TOP BANNER ===== */
+.banner{
+  border-radius:var(--radius);
+  overflow:hidden;
+  border:1px solid var(--stroke);
+  box-shadow:var(--shadow);
+}
+.banner img{width:100%;display:block}
+
+/* ===== HERO TEXT ===== */
+.hero{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:16px;
+  margin:16px 0;
+  flex-wrap:wrap;
+}
+.hero h1{
+  margin:0;
+  font-size:clamp(24px,4vw,38px);
+  color:var(--gold-soft);
+}
+.hero p{color:var(--muted);max-width:680px}
+/* ===== PREMIUM TITLE WAVE + LIGHT ===== */
+.title-wave{
+  position:relative;
+  display:inline-block;
+  color:var(--gold-soft);
+  text-shadow:
+    0 0 6px rgba(212,175,55,.35),
+    0 0 18px rgba(212,175,55,.15);
+  animation:titleWave 5s ease-in-out infinite;
+}
+
+/* Soft wave motion */
+@keyframes titleWave{
+  0%,100%{
+    transform:translateY(0);
+  }
+  50%{
+    transform:translateY(-3px);
+  }
+}
+
+/* Light sweep */
+.title-wave::after{
+  content:"";
+  position:absolute;
+  top:0;
+  left:-120%;
+  width:120%;
+  height:100%;
+  background:linear-gradient(
+    120deg,
+    transparent 0%,
+    rgba(255,215,120,.35) 50%,
+    transparent 100%
+  );
+  animation:titleShine 6s linear infinite;
+  pointer-events:none;
+}
+
+/* Light movement */
+@keyframes titleShine{
+  0%{ left:-120%; }
+  100%{ left:120%; }
+}
+
+/* ===== CENTER TEXT + IRREGULAR BUBBLES ===== */
+.stage{
+  position:relative;
+  margin-top:16px;
+  padding:30px 18px;
+  border-radius:var(--radius);
+  border:1px solid var(--stroke);
+  background:var(--card);
+  box-shadow:var(--shadow);
+  text-align:center;
+}
+.stage h2{margin:0;font-size:30px;color:var(--gold)}
+.stage p{color:var(--muted);max-width:560px;margin:10px auto}
+
+/* Floating bubbles */
+.bubble{
+  position:absolute;
+  width:66px;height:66px;
+  border-radius:50%;
+  background:rgba(212,175,55,.18);
+  border:1px solid var(--stroke);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  animation:float 4s ease-in-out infinite;
+}
+.bubble img{width:34px}
+@keyframes float{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-12px)}
+}
+
+/* Zig-zag bubble positions */
+.b1{ left:-24px; top:40px; }
+.b2{ left:30px; top:120px; animation-delay:.5s; }
+.b3{ left:-12px; top:210px; animation-delay:1s; }
+
+.b4{ right:-24px; top:60px; }
+.b5{ right:42px; top:150px; animation-delay:.6s; }
+.b6{ right:-10px; top:240px; animation-delay:1.1s; }
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+
+/* ===== CIRCLE GRID ===== */
+.circle-panel{
+  margin-top:18px;
+  padding:18px;
+  border-radius:var(--radius);
+  border:1px solid var(--stroke);
+  background:var(--card);
+}
+.circle-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:14px;
+}
+.circle{
+  aspect-ratio:1/1;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(212,175,55,.28),rgba(0,0,0,.3));
+  border:1px solid var(--stroke);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:.2s;
+}
+.circle:hover{transform:scale(1.12)}
+
+.circle-content{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;   /* 🔥 THIS IS KEY */
+  text-align:center;        /* 🔥 */
+  gap:6px;
+  height:100%;              /* 🔥 forces full circle height */
+  padding:12px;             /* balances text wrap */
+}
+
+.circle-content img{
+  width:60px;
+  filter:drop-shadow(0 0 8px rgba(212,175,55,.6));
+}
+.circle-content span{
+  font-weight:800;
+  font-size:14px;
+  line-height:1.2;          /* 🔥 avoids vertical drift */
+}
+
+.circle-content small{
+  font-size:12px;
+  color:var(--muted);
+  line-height:1.2;
+}
+
+/* ===== SLIDER ===== */
+.slider{
+  margin-top:18px;
+  border-radius:var(--radius);
+  overflow:hidden;
+  border:1px solid var(--stroke);
+}
+.slider img{width:100%;display:none}
+.slider img.active{display:block}
+
+/* ===== PERFORMANCE + REVIEWS ===== */
+.perf{
+  margin-top:18px;
+  display:grid;
+  grid-template-columns: 1fr 1fr;   /* ✅ balanced */
+  gap:16px;
+}
+.section-title{
+  margin-top: 24px;
+  margin-bottom: 12px;
+  text-align: left;
+}
+
+.section-title h2{
+  margin: 0;
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: .3px;
+}
+
+.section-title p{
+  margin: 4px 0 0;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* Card box */
+.box{
+  padding:18px;
+  border-radius:var(--radius);
+  border:1px solid var(--stroke);
+  background:var(--card);
+}
+
+/* Review box */
+.review{
+  min-height:160px;               /* ✅ more breathing room */
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
+.review p{
+  margin:0;
+  line-height:1.5;                /* ✅ fixes cramped feel */
+}
+
+.review span{
+  margin-top:8px;
+  font-size:12px;
+  color:var(--muted);
+}
+
+/* ===== FEATURES ===== */
+.features{
+  margin-top:18px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+
+/* ===== FEATURES (CENTERED, SIDE-BY-SIDE) ===== */
+.features{
+  margin-top:18px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+
+.feature{
+  display:flex;
+  align-items:center;        /* vertical center */
+  justify-content:center;    /* center whole block */
+  gap:12px;
+  text-align:left;
+}
+
+.feature img{
+  width:60px;
+  flex-shrink:0;
+}
+/* ---------- TABLET ---------- */
+@media (max-width: 900px){
+  .features{
+    grid-template-columns:repeat(2,1fr);
+    gap:16px;
+  }
+}
+
+/* ---------- PHONE ---------- */
+@media (max-width: 600px){
+  .features{
+    grid-template-columns:1fr;   /* ✅ stack vertically */
+    gap:14px;
+  }
+
+  .feature img{
+    width:44px;                  /* ✅ smaller icon */
+  }
+
+  .feature{
+    justify-content:flex-start;  /* looks cleaner on phone */
+  }
+}
+/* ===== GAMES ===== */
+.games{
+  margin-top:14px;                 /* ⬇ less spacing */
+  position:relative;
+  border-radius:var(--radius);
+  border:1px solid var(--stroke);
+  background:var(--card);
+  padding:10px;                    /* ⬇ tighter padding */
+}
+
+/* Header */
+.games-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:8px;               /* ⬇ tighter */
+}
+
+.games-head h3{
+  font-size:15px;                  /* ⬇ smaller title */
+  margin:0;
+}
+
+/* Grid */
+.game-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:8px;                         /* ⬇ smaller gaps */
+}
+
+/* Game Card */
+.game img{
+  width:100%;
+  border-radius:8px;               /* ⬇ less bulky */
+}
+
+.game p{
+  margin:4px 0 0;
+  font-weight:700;                 /* ⬇ less heavy */
+  font-size:13px;                  /* ⬇ smaller text */
+  line-height:1.2;
+}
+
+.game span{
+  font-size:11px;                  /* ⬇ more compact */
+  color:var(--muted);
+}
+
+/* Jackpot ticker */
+.jackpot-wrap{
+  border:1px solid rgba(0,255,154,.25);
+  border-radius:14px;
+  padding:12px;
+  background:rgba(255,255,255,.03);
+}
+
+.jackpot-title{
+  font-weight:800;
+  margin-bottom:8px;
+  color:#00ff9a;
+}
+
+.jackpot{
+  height:160px;
+  overflow:hidden;
+  position:relative;
+}
+
+.jackpot-track{
+  display:flex;
+  flex-direction:column;
+   animation: scrollJackpot 30s linear infinite;
+}
+
+/* Smooth continuous scroll */
+@keyframes scrollJackpot{
+  0%{ transform:translateY(0); }
+  100%{ transform:translateY(-50%); }
+}
+/* Gold highlight */
+.jid,
+.jwin{
+  color: var(--gold-soft);
+  font-weight:700;
+}
+
+/* Base row */
+.jackpot-track div{
+  padding:6px 0;
+  font-size:14px;
+  white-space:nowrap;
+  opacity:.6;
+  transition:opacity .3s ease;
+}
+
+/* Pulse glow animation */
+@keyframes pulseGlow{
+  0%{
+    text-shadow:0 0 0 rgba(212,175,55,0);
+    opacity:.6;
+  }
+  50%{
+    text-shadow:0 0 10px rgba(212,175,55,.55);
+    opacity:1;
+  }
+  100%{
+    text-shadow:0 0 0 rgba(212,175,55,0);
+    opacity:.6;
+  }
+}
+
+/* Active row */
+.jackpot-track div.active{
+  animation:pulseGlow 1.6s ease-in-out infinite;
+}
+
+/* ===== FOOTER ===== */
+.footer{
+  text-align:center;
+  color:var(--muted);
+  font-size:12px;
+  margin-top:20px;
+}
+.line{height:1px;background:var(--stroke);margin:16px 0}
+
+/* ===== MOBILE ===== */
+@media (max-width: 900px){
+  .circle-grid{grid-template-columns:repeat(2,1fr)}
+  .bubble{
+    display:none !important;
+  }
+  .jackpot{position:static;margin-top:10px}
+}
+
+@media (max-width: 768px){
+  .perf{
+    grid-template-columns:1fr;
+  }
+}
+@media (max-width:768px){
+  .title-wave{
+    animation:none;
+  }
+  .title-wave::after{
+    animation-duration:10s; /* slower shine */
+  }
+}
+@media (max-width:600px){
+  .game-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- Floating Download -->
+<div class="floating-download">
+  <a href="https://d2b7d7zspwuwat.cloudfront.net/rummy888_7WTCSDMZ06V.apk" class="btn-download">Download App</a>
+</div>
+
+<div class="wrap">
+
+  <div class="banner">
+    <img src="https://www.prosafeimg.com/uploads/20251214/693efbdb95fb9.jpg">
+  </div>
+
+  <div class="hero">
+    <div>
+     <h1 class="title-wave">Welcome to Rummy888 Premium Platform</h1>
+      <p>Fast access, smooth gameplay, and a premium experience.</p>
+    </div>
+    <a href="https://d2b7d7zspwuwat.cloudfront.net/rummy888_7WTCSDMZ06V.apk" class="btn-download">Download App</a>
+  </div>
+
+  <section class="stage">
+    <h2>Experience RUMMY888</h2>
+    <p>With popular games, clear rewards, aur smooth playing experience, humne is platform ko simple aur enjoyable banaya hai. Your luck starts here.</p>
+
+    <div class="bubble b1"><img src="https://www.prosafeimg.com/uploads/20251214/693eb988c09ec.png"></div>
+    <div class="bubble b2"><img src="https://www.prosafeimg.com/uploads/20251214/693eb99a12825.png"></div>
+    <div class="bubble b3"><img src="https://www.prosafeimg.com/uploads/20251214/693eb98f9da7c.png"></div>
+    <div class="bubble b4"><img src="https://www.prosafeimg.com/uploads/20251214/693eb97824ab1.png"></div>
+    <div class="bubble b5"><img src="https://www.prosafeimg.com/uploads/20251214/693eb97e3ac2b.png"></div>
+    <div class="bubble b6"><img src="https://www.prosafeimg.com/uploads/20251214/693eb98466789.png"></div>
+  </section>
+
+  <!-- CIRCLES -->
+<section class="circle-panel">
+    <div class="circle-grid">
+      <div class="circle"><div class="circle-content"><img src="https://www.prosafeimg.com/uploads/20251208/6936b8abe3bbd.png"><span>New Player Bonus</span><small>First deposit up to 200% cashback instantly.</small></div></div>
+      <div class="circle"><div class="circle-content"><img src="https://www.prosafeimg.com/uploads/20251208/6936b8a014062.png"><span>Lucky Wheel</span><small>Spin daily and win guaranteed prizes</small></div></div>
+      <div class="circle"><div class="circle-content"><img src="https://www.prosafeimg.com/uploads/20251208/6936b8b19abe4.png"><span>Daily Promo Codes</span><small>Extra daily rewards to boost your play.</small></div></div>
+      <div class="circle"><div class="circle-content"><img src="https://www.prosafeimg.com/uploads/20251208/6936b8a738a07.png"><span>Mystery Bonus</span><small>Random surprise rewards anytime</small></div></div>
+      <div class="circle"><div class="circle-content"><img src="https://www.prosafeimg.com/uploads/20251208/6936b8930eb88.png"><span>Lucky Gullak</span><small>Appears randomly — everyone can win!</small></div></div>
+      <div class="circle"><div class="circle-content"><img src="https://www.prosafeimg.com/uploads/20251208/6936b89cc06ce.png"><span>Leaderboards</span><small>Compete daily, weekly, and monthly.</small></div></div>
+      <div class="circle"><div class="circle-content"><img src="https://www.prosafeimg.com/uploads/20251208/6936b8ba58b7d.png"><span>VIP Forever</span><small>Lifetime VIP benefits for loyal players.</small></div></div>
+      <div class="circle"><div class="circle-content"><img src="https://www.prosafeimg.com/uploads/20251208/6936b8b66c48f.png"><span>Share & Earn</span><small>Invite friends and earn rewards together.</small></div></div>
+    </div>
+
+  </section>
+
+  <!-- SLIDER -->
+  <div class="slider" id="slider1">
+    <img class="active" src="https://www.prosafeimg.com/uploads/20251214/693efbd46ca1b.jpg">
+    <img src="https://www.prosafeimg.com/uploads/20251215/693fd83542615.jpg">
+    <img src="https://www.prosafeimg.com/uploads/20251215/693fd8b433d76.jpg">
+     <img src="https://www.prosafeimg.com/uploads/20251215/693fd83eb9182.jpg">
+    <img src="https://www.prosafeimg.com/uploads/20251215/693fd8440aaa3.jpg">
+    <img src="https://www.prosafeimg.com/uploads/20251215/693fd849d6fb2.jpg">
+    <img src="https://www.prosafeimg.com/uploads/20251215/693fd84f85f0a.jpg">
+    <img src="https://www.prosafeimg.com/uploads/20251215/693fd8553b0ee.jpg">
+    <img src="https://www.prosafeimg.com/uploads/20251215/693fd859e15b6.jpg">
+    <img src="https://www.prosafeimg.com/uploads/20251215/693fd860ec752.jpg">
+    <img src="https://www.prosafeimg.com/uploads/20251215/693fd8657a8d7.jpg">
+    <img src="https://www.prosafeimg.com/uploads/20251215/693fd8699487a.jpg">
+</div>
+
+  <!-- PERFORMANCE -->
+  <section class="perf">
+    <div class="box">
+      <h3>❤️ Why Players Love RUMMY888 ❤️</h3>
+      <p>Built for speed and stability, RUMMY888 delivers smooth and responsive gameplay on mobile devices, supported by a safe and reliable system with consistent performance. Bonuses and rewards are designed to be clear and straightforward, with simple rules and no unnecessary complexity. Players can also enjoy regular activities and special events that keep the experience fresh, along with responsive support that is always ready to assist when needed.</p>
+    </div>
+
+    <div class="box review" id="reviewBox">
+<div class="section-title">
+  <h2>What Players Say</h2>
+  <p>Real feedback from our players</p>
+</div>
+      <p id="reviewText">“Smooth and premium feeling.”</p>
+      <span id="reviewName">Player 18***</span>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features">
+    <div class="box feature"><img src="https://www.prosafeimg.com/uploads/20251214/693efeac5bdfa.png"><div><strong>Fast Deposit & Withdrawal</strong><p>Quick processing</p></div></div>
+    <div class="box feature"><img src="https://www.prosafeimg.com/uploads/20251214/693efeb451e47.png"><div><strong>24/7 Customer Support</strong><p>Always available</p></div></div>
+    <div class="box feature"><img src="https://www.prosafeimg.com/uploads/20251214/693efeb7165b6.png"><div><strong>Trusted Platform</strong><p>Reliable service</p></div></div>
+  </section>
+
+  <!-- GAMES -->
+  <section class="games">
+    <div class="games-head">
+      <h3>🔥 Recommended Games</h3>
+      <a href="https://d2b7d7zspwuwat.cloudfront.net/rummy888_7WTCSDMZ06V.apk" style="color:var(--gold)">More →</a>
+    </div>
+
+    <div class="game-grid">
+      <div class="game"><img src="https://www.prosafeimg.com/uploads/20251214/693f02169e3fb.png"><p>Power of the Kraken ⅠⅠⅠ</p><span>Slots</span></div>
+      <div class="game"><img src="https://www.prosafeimg.com/uploads/20251215/693f027bdd7b9.png"><p>Uono Aviator</p><span>Flight</span></div>
+      <div class="game"><img src="https://www.prosafeimg.com/uploads/20251215/693f026c7da2b.png"><p>Chicken Road 3</p><span>Multiplayer</span></div>
+    </div>
+
+ <div class="jackpot-wrap">
+  <div class="jackpot-title">🎉 Recent Wins</div>
+<script>
+const track = document.querySelector('.jackpot-track');
+track.innerHTML += track.innerHTML; // duplicate for smooth loop
+</script>
+
+<div class="jackpot" id="jackpot">
+  <div class="jackpot-track">
+    <div><span class="jid">ID 12XX931</span> <span class="jwin">won ₹8,500</span></div>
+    <div><span class="jid">ID 24XX207</span> <span class="jwin">won ₹12,000</span></div>
+    <div><span class="jid">ID 19XX302</span> <span class="jwin">won ₹6,200</span></div>
+    <div><span class="jid">ID 31XX845</span> <span class="jwin">won ₹15,300</span></div>
+    <div><span class="jid">ID 27XX114</span> <span class="jwin"> won ₹14,800</span></div>
+    <div><span class="jid">ID 18XX509</span> <span class="jwin"> won ₹20,750</span></div>
+    <div><span class="jid">ID 29XX663</span> <span class="jwin"> won ₹22,000</span></div>
+    <div><span class="jid">ID 14XX782</span> <span class="jwin"> won ₹9,600</span></div>
+    <div><span class="jid">ID 26XX391</span> <span class="jwin"> won ₹18,900</span></div>
+    <div><span class="jid">ID 21XX504</span> <span class="jwin"> won ₹30,200</span></div>
+    <div><span class="jid">ID 23XX529</span> <span class="jwin"> won ₹11,750</span></div>
+    <div><span class="jid">ID 39XX993</span> <span class="jwin"> won ₹22,000</span></div>
+    <div><span class="jid">ID 14XX792</span> <span class="jwin"> won ₹8,600</span></div>
+    <div><span class="jid">ID 29XX311</span> <span class="jwin"> won ₹28,900</span></div>
+    <div><span class="jid">ID 51XX506</span> <span class="jwin"> won ₹17,200</span></div>
+    <!-- keep adding -->
+  </div>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded',()=>{
+
+  const track = document.querySelector('.jackpot-track');
+  if(!track) return;
+
+  // duplicate rows for smooth loop
+  track.innerHTML += track.innerHTML;
+
+  const rows = document.querySelectorAll('.jackpot-track div');
+  let activeIndex = 0;
+
+  setInterval(()=>{
+    rows.forEach(r=>r.classList.remove('active'));
+    rows[activeIndex].classList.add('active');
+    activeIndex = (activeIndex + 1) % rows.length;
+  },1500);
+
+});
+</script>
+
+</section>
+
+  <!-- BOTTOM SLIDER -->
+  <div class="slider" id="slider2">
+    <img class="active" src="https://www.prosafeimg.com/uploads/20251215/693f03992b9d3.jpg">
+    <img src="https://www.prosafeimg.com/uploads/20251215/693f03a025da1.jpg">
+   <img src="https://www.prosafeimg.com/uploads/20251215/693f03a53ac2c.jpg">
+   <img src="https://www.prosafeimg.com/uploads/20251215/693f03ab790a8.jpg">
+   <img src="https://www.prosafeimg.com/uploads/20251215/693f03b74b450.jpg">
+   <img src="https://www.prosafeimg.com/uploads/20251215/693f03c7e8b9b.jpg">
+   <img src="https://www.prosafeimg.com/uploads/20251215/693f03cfbc381.jpg">
+   <img src="https://www.prosafeimg.com/uploads/20251215/693f055a6e8cf.jpg">
+  </div>
+
+  <div class="line"></div>
+  <div class="footer">© 2025 Rummy888. All Rights Reserved. 18+</div>
+
+</div>
+
+<script>
+function startSlider(id){
+  const imgs=document.querySelectorAll(`#${id} img`);
+  let i=0;
+  setInterval(()=>{
+    imgs[i].classList.remove('active');
+    i=(i+1)%imgs.length;
+    imgs[i].classList.add('active');
+  },2500);
+}
+startSlider('bannerSlider');
+startSlider('slider1');
+startSlider('slider2');
+
+const reviews=[
+  ['“Smooth gameplay, kaafi comfortable lagta hai.”','Player 18***'],
+  ['“Fast aur stable platform.”','Player 24***'],
+  ['“Simple design, samajhna easy.”','Player 37***'],
+  ['“Mobile par bhi smooth chalta hai.”','Player 41***'],
+  ['“Rewards clear hain, no confusion.”','Player 56***'],
+  ['“Support team helpful hai.”','Player 62***'],
+  ['“Overall experience kaafi achha.”','Player 73***'],
+  ['“Game load fast hota hai.”','Player 89***'],
+  ['“Platform ka flow smooth hai.”','Player 94***'],
+  ['“Design clean aur premium feel deta hai.”','Player 15***'],
+
+  ['“Easy to use, beginners ke liye bhi.”','Player 28***'],
+  ['“Daily rewards ka system achha hai.”','Player 36***'],
+  ['“No lag, no delay.”','Player 47***'],
+  ['“Simple rules, clear bonuses.”','Player 58***'],
+  ['“Kaafi reliable platform laga.”','Player 61***'],
+  ['“Phone par experience achha hai.”','Player 74***'],
+  ['“Gameplay smooth aur stable.”','Player 82***'],
+  ['“Support fast reply karta hai.”','Player 95***'],
+  ['“Events interesting rehte hain.”','Player 19***'],
+  ['“Overall trustworthy feel.”','Player 33***'],
+
+  ['“Design bilkul clutter-free hai.”','Player 45***'],
+  ['“Rewards milna straightforward hai.”','Player 52***'],
+  ['“Khelna easy aur enjoyable.”','Player 68***'],
+  ['“App smooth aur responsive hai.”','Player 71***'],
+  ['“Bonuses samajhna simple hai.”','Player 84***'],
+  ['“Regular events achhe lagte hain.”','Player 97***'],
+  ['“Mobile aur desktop dono par sahi.”','Player 26***'],
+  ['“System stable aur reliable hai.”','Player 39***'],
+  ['“No unnecessary pop-ups.”','Player 53***'],
+  ['“Platform ka experience balanced hai.”','Player 66***'],
+
+  ['“Use karna kaafi easy laga.”','Player 78***'],
+  ['“Rewards time par milte hain.”','Player 87***'],
+  ['“Clean UI, smooth feel.”','Player 92***'],
+  ['“Support ka response achha hai.”','Player 21***'],
+  ['“Simple aur clear platform.”','Player 34***'],
+  ['“Gameplay mein consistency hai.”','Player 49***'],
+  ['“Events ka flow achha hai.”','Player 57***'],
+  ['“Overall experience satisfying.”','Player 69***'],
+  ['“No complexity, sab clear.”','Player 81***'],
+  ['“Comfortable aur reliable lagta hai.”','Player 96***']
+];
+let r=0;
+setInterval(()=>{
+  r=(r+1)%reviews.length;
+  document.getElementById('reviewText').innerText=reviews[r][0];
+  document.getElementById('reviewName').innerText=reviews[r][1];
+},2000);
+</script>
+
+</body>
+</html>
